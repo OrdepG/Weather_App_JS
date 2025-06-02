@@ -7,7 +7,7 @@ const error404 = document.querySelector('.not-found');
 search.addEventListener('click', () =>{
 
 const APIkey = '50a874e7fdfbc8fdbb5376a410fc63f7';
-const city = document.querySelector('.search-box input').value;
+const city = document.querySelector('.search-box input').value.trim();
 
 if(city === '')
     return;
@@ -16,7 +16,7 @@ fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&ap
 .then(response => response.json())
 .then(json => {
 
-    if(json.cod === 404){
+    if(json.cod == 404){
         container.style.height = '400px';
         weatherBox.style.display = 'none';
         weatherDetails.style.display = 'none';
