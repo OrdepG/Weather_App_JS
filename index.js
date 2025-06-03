@@ -58,7 +58,7 @@ try{
         weatherDetails.style.display = '';
         weatherBox.classList.add('fadeIn');
         weatherDetails.classList.add('fadeIn');
-        container.style.height = '590px';
+        container.style.height = '800px';
 
         const gallery = document.getElementById('gallery');
         gallery.innerHTML = '';
@@ -68,8 +68,10 @@ try{
             image.src = img.urls.small;
             image.alt = city;
             image.style.width = '100px';
-            image.style.margin = '8px';
+            image.style.height = '150px';
+            image.style.margin = ' 5px 8px';
             image.style.borderRadius = '10px';
+            image.style.objectFit = 'cover';
             image.style.boxShadow = '0 0 8px rgba(0,0,0,0.2)';
             gallery.appendChild(image);
         });

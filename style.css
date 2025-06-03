@@ -16,7 +16,7 @@ body{
 
 .container{
     position: relative;
-    width: 400px;
+    width: 550px;
     height: 105px;
     background: #fff;
     padding:28px 32px;
@@ -77,8 +77,8 @@ body{
 }
 
 .weather-box img{
-    width: 60%;
-    margin-top: 30px;
+    width: 50%;
+    margin-top: 25px;
 }
 
 .weather-box .temperature{
@@ -86,7 +86,7 @@ body{
     color: #06283D;
     font-size: 4rem;
     font-weight: 800;
-    margin-top: 30px;
+    margin-top: 20px;
     margin-left: -16px;
 }
 
@@ -107,7 +107,7 @@ body{
     width: 100%;
     display: flex;
     justify-content: space-between;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 .weather-details .humidity,
