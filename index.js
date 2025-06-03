@@ -58,7 +58,11 @@ try{
         weatherDetails.style.display = '';
         weatherBox.classList.add('fadeIn');
         weatherDetails.classList.add('fadeIn');
+        if(window.innerWidth <= 480){
+            container.style.height = 'auto';
+        }else{
         container.style.height = '800px';
+        }
 
         const gallery = document.getElementById('gallery');
         gallery.innerHTML = '';
