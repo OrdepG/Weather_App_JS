@@ -67,12 +67,9 @@ try{
             const image = document.createElement('img');
             image.src = img.urls.small;
             image.alt = city;
-            image.style.width = '100px';
-            image.style.height = '150px';
-            image.style.margin = ' 5px 8px';
-            image.style.borderRadius = '10px';
+            image.classList.add('city-image');
             image.style.objectFit = 'cover';
-            image.style.boxShadow = '0 0 8px rgba(0,0,0,0.2)';
+            
             gallery.appendChild(image);
         });
     } catch (erro) {

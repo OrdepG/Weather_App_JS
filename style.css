@@ -16,7 +16,7 @@ body{
 
 .container{
     position: relative;
-    width: 550px;
+    width: 540px;
     height: 105px;
     background: #fff;
     padding:28px 32px;
@@ -181,5 +181,36 @@ body{
     to{
         scale: 1;
         opacity: 1;
+    }
+}
+
+
+#gallery{
+display: flex;
+flex-wrap: wrap;
+justify-self: center;
+margin-top:4px;
+gap: 16px;
+padding: 3px;
+}
+
+.city-image{
+    width: 100px;
+    height: 150px;
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+}
+.city-image:hover{
+    transform: scale(1.05);
+}
+
+@media(max-width: 480px){
+    .city-image {
+        width: 90px;
+    }
+
+    #gallery{
+        gap: 8px;
     }
 }
