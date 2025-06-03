@@ -207,8 +207,9 @@ padding: 3px;
 
 @media(max-width: 480px){
     .container{
-        width: 90%;
+        width: 75%;
         padding: 20px;
+        padding-bottom: -10px;
     }
 
     .weather-box img{
