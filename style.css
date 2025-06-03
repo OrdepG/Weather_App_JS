@@ -227,9 +227,11 @@ padding: 3px;
         font-size: 18px;
     }
 
+    .weather-details{
+        margin-top: 10px;
+    }
     .weather-details p{
         font-size: 12px;
-        margin-top: 10px;
     }
 
     .city-image {
