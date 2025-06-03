@@ -150,14 +150,14 @@ body{
 .not-found{
     width: 100%;
     text-align: center;
-    margin-top: 20%;
+    margin-top: 12%;
     scale: 0;
     opacity: 0;
     display: none;
 }
 
 .not-found img{
-    width: 70%;
+    width: 65%;
 }
 
 .not-found p{

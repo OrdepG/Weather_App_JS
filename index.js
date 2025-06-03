@@ -28,6 +28,8 @@ try{
         weatherDetails.style.display = 'none';
         error404.style.display = 'block';
         error404.classList.add('fadeIn');
+        const gallery = document.getElementById('gallery');
+        gallery.innerHTML = '';
         return;
     }
 
