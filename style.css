@@ -207,18 +207,18 @@ padding: 3px;
 
 @media(max-width: 480px){
     .container{
-        width: 500px;
         padding: 20px;
         padding-bottom: -10px;
     }
 
     .weather-box img{
         width: 55%;
-        margin-top: 20px;
+        margin-top: 15px;
     }
 
     .weather-box .temperature{
         font-size: 3rem;
+        margin-top: 5px;
     }
     .weather-box .description{
         font-size: 18px;
@@ -228,19 +228,19 @@ padding: 3px;
     }
 
     .weather-details{
-        margin-top: 10px;
+        margin-top: 7px;
     }
     .weather-details p{
         font-size: 12px;
     }
 
     .city-image {
-        width: 80px;
-        height: 120px;
+        width: 75px;
+        height: 110px;
     }
 
     #gallery{
-        gap: 8px;
+        gap: 9px;
         padding: 0;
     }
 }
