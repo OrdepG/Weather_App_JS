@@ -209,8 +209,6 @@ padding: 3px;
     .container{
         width: 90%;
         padding: 20px;
-        min-height: auto;
-        height: auto;
     }
     .weather-box .temperature{
         font-size: 3rem;
@@ -233,5 +231,6 @@ padding: 3px;
 
     #gallery{
         gap: 8px;
+        padding: 0;
     }
 }
