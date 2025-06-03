@@ -4,19 +4,25 @@ const weatherBox = document.querySelector('.weather-box');
 const weatherDetails = document.querySelector('.weather-details');
 const error404 = document.querySelector('.not-found');
 
-search.addEventListener('click', () =>{
+search.addEventListener('click', async () =>{
 
 const APIkey = '50a874e7fdfbc8fdbb5376a410fc63f7';
+const APIunsplash = 'bnIfEUar5y3MuzavdJVHHzSRc6-u5mX4aGo7bYeELQg';
 const city = document.querySelector('.search-box input').value.trim();
 
-if(city === '')
-    return;
+if(city === '') return;
 
-fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${APIkey}`)
-.then(response => response.json())
-.then(json => {
+try{
+    const [weatherRes, imagesRes] = await Promise.all([
+        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${APIkey}`),
+        fetch(`https://api.unsplash.com/search/photos?query=${city}&client_id=${APIunsplash}&per_page=4`)
+    ]);
 
-    if(json.cod == 404){
+    const weatherData = await weatherRes.json();
+    const imagesData = await imagesRes.json();
+    
+
+    if(weatherData.cod === '404' || weatherData.cod === 404){
         container.style.height = '400px';
         weatherBox.style.display = 'none';
         weatherDetails.style.display = 'none';
@@ -34,35 +40,42 @@ fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&ap
         const humidity = document.querySelector('.weather-details .humidity span');
         const wind = document.querySelector('.weather-details .wind span');
 
-        switch(json.weather[0].main){
-            case 'Clear':
-                image.src = 'images/clear.png';
-                break;
-                case 'Rain':
-                    image.src = 'images/rain.png';
-                    break;
-                    case 'Snow':
-                        image.src = 'images/snow.png';
-                        break;
-                        case 'Clouds':
-                            image.src = 'images/cloud.png';
-                            break;
-                            case 'Haze':
-                                image.src = 'images/haze.png';
-                                break;
-                                default:
-                                    image.src = '';
+        switch(weatherData.weather[0].main){
+            case 'Clear': image.src = 'images/clear.png'; break;
+            case 'Rain': image.src = 'images/rain.png'; break;
+            case 'Snow': image.src = 'images/snow.png'; break;
+            case 'Clouds': image.src = 'images/cloud.png'; break;
+            case 'Haze': image.src = 'images/haze.png'; break;
+            default: image.src = '';
         }
 
-        temperature.innerHTML = `${parseInt(json.main.temp)}<span>ºC</span>`;
-        description.innerHTML = `${json.weather[0].description}`;
-        humidity.innerHTML = `${json.main.humidity}%`;
-        wind.innerHTML = `${parseInt(json.wind.speed)}Km/h`;
+        temperature.innerHTML = `${parseInt(weatherData.main.temp)}<span>ºC</span>`;
+        description.innerHTML = `${weatherData.weather[0].description}`;
+        humidity.innerHTML = `${weatherData.main.humidity}%`;
+        wind.innerHTML = `${parseInt(weatherData.wind.speed)}Km/h`;
 
         weatherBox.style.display = '';
         weatherDetails.style.display = '';
         weatherBox.classList.add('fadeIn');
         weatherDetails.classList.add('fadeIn');
-        container.style.height = '590px'
-    })
-})
+        container.style.height = '590px';
+
+        const gallery = document.getElementById('gallery');
+        gallery.innerHTML = '';
+
+        imagesData.results.forEach(img => {
+            const image = document.createElement('img');
+            image.src = img.urls.small;
+            image.alt = city;
+            image.style.width = '100px';
+            image.style.margin = '8px';
+            image.style.borderRadius = '10px';
+            image.style.boxShadow = '0 0 8px rgba(0,0,0,0.2)';
+            gallery.appendChild(image);
+        });
+    } catch (erro) {
+        console.error('Erro geral:', erro);
+        error404.style.display = 'block';
+        error404.classList.add('fadeIn');
+    }
+});
