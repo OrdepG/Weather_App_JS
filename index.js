@@ -75,6 +75,18 @@ try{
             image.alt = city;
             image.classList.add('city-image');
             image.style.objectFit = 'cover';
+
+            //modal
+            image.addEventListener('click', () =>{
+                const modal = document.getElementById('imageModal');
+                const modalImg = document.getElementById('modalImg');
+                const caption = document.getElementById('caption');
+
+                modal.style.display = 'block';
+                modalImg.src = img.urls.full || img.urls.regular;
+                caption.textContent = city;
+
+            })
             
             gallery.appendChild(image);
         });
@@ -92,4 +104,16 @@ input.addEventListener('keydown', (event) => {
   if (event.key === 'Enter') {
     pesquisarClima();
   }
+
+  const modal = document.getElementById('imageModal');
+  const closeBtn = document.querySelector('.close');
+closeBtn.addEventListener('click', () => {
+    modal.classList.add('fade-out');
+
+    setTimeout(() => {
+        modal.style.display = 'none';
+        modal.classList.remove('fade-out')
+    }, 500);
+  });
+  
 });
