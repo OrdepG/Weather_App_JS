@@ -4,7 +4,7 @@ const weatherBox = document.querySelector('.weather-box');
 const weatherDetails = document.querySelector('.weather-details');
 const error404 = document.querySelector('.not-found');
 
-search.addEventListener('click', async () =>{
+async function pesquisarClima() {
 
 const APIkey = '50a874e7fdfbc8fdbb5376a410fc63f7';
 const APIunsplash = 'bnIfEUar5y3MuzavdJVHHzSRc6-u5mX4aGo7bYeELQg';
@@ -83,4 +83,13 @@ try{
         error404.style.display = 'block';
         error404.classList.add('fadeIn');
     }
+};
+
+   search.addEventListener('click', pesquisarClima);
+
+const input = document.querySelector('.search-box input');
+input.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter') {
+    pesquisarClima();
+  }
 });
