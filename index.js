@@ -128,14 +128,23 @@ closeBtn.addEventListener("click", () => {
   }, 500);
 });
 
-document.addEventListener("keydown", function (event) {
-  const key = event.key;
-  if (key === "Escape") {
-    modal.classList.add("fade-out");
-
-    setTimeout(() => {
-      modal.style.display = "none";
-      modal.classList.remove("fade-out");
-    }, 500);
-  }
+modal.addEventListener('click', (event) => {
+    if(event.target === modal){
+        fecharModal()
+    };
 });
+
+
+function fecharModal() {
+    modal.classList.add('fade-out');
+    setTimeout(() => {
+        modal.style.display = 'none';
+        modal.classList.remove('fade-out')
+    }, 500);
+};
+
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape") {
+    fecharModal();
+  }
+  });
