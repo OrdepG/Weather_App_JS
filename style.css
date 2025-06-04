@@ -297,6 +297,7 @@ padding: 3px;
     }
 
     .modal-content{
+       padding-top: 100px;
        max-width: 90%;
        max-height: 70%;
     }
