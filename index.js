@@ -104,7 +104,7 @@ input.addEventListener('keydown', (event) => {
   if (event.key === 'Enter') {
     pesquisarClima();
   }
-
+});
   const modal = document.getElementById('imageModal');
   const closeBtn = document.querySelector('.close');
 closeBtn.addEventListener('click', () => {
@@ -114,6 +114,19 @@ closeBtn.addEventListener('click', () => {
         modal.style.display = 'none';
         modal.classList.remove('fade-out')
     }, 500);
+    
   });
+
+  document.addEventListener('keydown', function(event) {
+    const key = event.key;
+  if (key === 'Escape') {
+    modal.classList.add('fade-out');
+
+    setTimeout(() => {
+        modal.style.display = 'none';
+        modal.classList.remove('fade-out')
+    }, 500);
+};
+
   
 });
