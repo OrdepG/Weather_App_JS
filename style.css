@@ -295,9 +295,10 @@ padding: 3px;
         gap: 9px;
         padding: 0;
     }
-
+    .modal{
+        padding-top: 60px;
+    }
     .modal-content{
-       padding-top: 100px;
        max-width: 90%;
        max-height: 70%;
     }
