@@ -297,7 +297,8 @@ padding: 3px;
         padding: 0;
     }
 
-    .modal img{
-    margin-top:40px;
+    .modal{
+        display:flex;
+        justify-content: center;
 }
 }
